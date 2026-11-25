@@ -18,9 +18,9 @@ Le Radar veut réunir les gens autour de leurs liens sociaux : donner envie de s
 
 ## Mise à jour
 
-Le Radar est renouvelé chaque semaine. Les dates, lieux, prix et disponibilités sont vérifiés sur les sites et billetteries officiels au moment de la mise à jour : pensez à jeter un œil à la billetterie avant de vous déplacer.
+Le Radar est renouvelé chaque semaine et publié directement ici : le site se met à jour automatiquement à chaque nouvelle édition.
 
-Chaque nouveau Radar est enregistré ici et publié automatiquement sur le site, dans l'heure qui suit sa parution.
+Les dates, lieux, prix et disponibilités sont vérifiés sur les sites et billetteries officiels au moment de la mise à jour : pensez à jeter un œil à la billetterie avant de vous déplacer.
 
 ## Technique
 
