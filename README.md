@@ -25,3 +25,9 @@ Les dates, lieux, prix et disponibilités sont vérifiés sur les sites et bille
 ## Technique
 
 Site statique en un seul fichier (`index.html`), sans dépendance ni étape de construction, publié avec GitHub Pages.
+
+## Propriété intellectuelle
+
+© 2026 Baptiste Mazas, tous droits réservés. Le Radar se consulte et se partage librement. Le code, les textes et le design ne peuvent être ni copiés, ni modifiés, ni redistribués, ni exploités commercialement sans mon accord écrit : voir la [licence](LICENSE).
+
+Vous souhaitez développer ce projet avec moi, l'intégrer à votre offre ou obtenir une licence ? Écrivez-moi sur [LinkedIn](https://www.linkedin.com/in/baptiste-mazas-577219182/).
