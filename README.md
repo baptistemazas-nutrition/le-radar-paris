@@ -2,7 +2,7 @@
 
 **Chaque semaine, une sélection vérifiée de sorties parisiennes** : concerts, soirées musicales, stand-up, expos photo et art, restos, plein air et ateliers, avec des liens de réservation directs et de nombreuses options gratuites.
 
-👉 **Le site : [le-radar-paris.netlify.app](https://le-radar-paris.netlify.app)**
+👉 **Le site : [baptistemazas-nutrition.github.io/le-radar-paris](https://baptistemazas-nutrition.github.io/le-radar-paris/)**
 
 ## Pourquoi ce projet
 
@@ -18,8 +18,10 @@ Le Radar veut réunir les gens autour de leurs liens sociaux : donner envie de s
 
 ## Mise à jour
 
-Le Radar est mis à jour chaque semaine. Les dates, lieux, prix et disponibilités sont vérifiés sur les sites et billetteries officiels au moment de la mise à jour : pensez à jeter un œil à la billetterie avant de vous déplacer.
+Le Radar est renouvelé chaque semaine. Les dates, lieux, prix et disponibilités sont vérifiés sur les sites et billetteries officiels au moment de la mise à jour : pensez à jeter un œil à la billetterie avant de vous déplacer.
+
+Chaque nouveau Radar est enregistré ici et publié automatiquement sur le site, dans l'heure qui suit sa parution.
 
 ## Technique
 
-Site statique en un seul fichier (`index.html`), sans dépendance ni étape de construction, publié sur Netlify.
+Site statique en un seul fichier (`index.html`), sans dépendance ni étape de construction, publié avec GitHub Pages.
