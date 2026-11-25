@@ -1,0 +1,38 @@
+name: Synchroniser le Radar depuis Netlify
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [".github/workflows/synchro-netlify.yml"]
+
+permissions:
+  contents: write
+
+jobs:
+  synchro:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger la version en ligne
+        run: |
+          curl -fsSL --retry 3 https://le-radar-paris.netlify.app/ -o index.html.new
+          grep -q "<title>Le Radar" index.html.new
+          if grep -Eq 'hf_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9_-]{20,}|AIza[0-9A-Za-z_-]{30,}|ghp_[A-Za-z0-9]{20,}|github_pat_' index.html.new; then
+            echo "Clé d'accès détectée dans la page : mise à jour annulée"
+            exit 1
+          fi
+          mv index.html.new index.html
+      - name: Enregistrer la nouvelle version si le site a changé
+        run: |
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Aucun changement depuis la dernière synchronisation"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Radar — version en ligne du $(TZ=Europe/Paris date +%d/%m/%Y)"
+          git push
