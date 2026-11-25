@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Le Radar — Paris</title>
+<meta name="description" content="Chaque semaine, une sélection vérifiée des sorties parisiennes : concerts, soirées, stand-up, expos photo, restos branchés, plein air et ateliers, avec liens de réservation et options gratuites.">
+<meta property="og:title" content="Le Radar — Paris">
+<meta property="og:description" content="Sélection hebdomadaire et vérifiée des sorties à Paris, avec liens de réservation directs et options gratuites.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#7b4dff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f6f5fb;--card:#ffffff;--fg:#1d1b2e;--muted:#6b6880;--line:#e4e1ef;
+  --accent:#7b4dff;--accent2:#ff4fa3;--accent-soft:#efe9ff;
+  --free:#0e8a4a;--free-soft:#e3f6ea;--star:#b45309;--star-soft:#fff1dc;
+  --shadow:0 1px 2px rgba(29,27,46,.05),0 8px 24px -12px rgba(123,77,255,.25);
+  --font-display:"Syne","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --font-body:"Manrope","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+.hero{background:linear-gradient(118deg,#6d3dff 0%,#9b4dff 45%,#ff4fa3 100%);color:#fff;padding-block:40px 36px;padding-inline:20px}
+.hero-in{max-width:1080px;margin:0 auto}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(28px,5vw,46px);letter-spacing:.06em;line-height:1.05;margin:0 0 12px;text-wrap:balance}
+.hsub{margin:0;max-width:62ch;font-size:clamp(15px,1.8vw,17px);line-height:1.55;opacity:.95}
+.toolbar{position:sticky;top:0;z-index:5;background:rgba(246,245,251,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.toolbar-in{max-width:1080px;margin:0 auto;padding-block:12px;padding-inline:20px;display:flex;flex-direction:column;gap:10px}
+.search{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px}
+.search svg{flex:none;width:16px;height:16px;color:var(--muted)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;color:var(--fg);font-size:15px}
+.search:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.fbtn{font:inherit;font-size:13px;font-weight:600;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.fbtn:hover{border-color:var(--accent)}
+.fbtn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.fbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+main{max-width:1080px;margin:0 auto;padding-block:24px 48px;padding-inline:20px}
+.week{margin-block:0 28px}
+.week-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:0 0 14px;font-family:var(--font-display);font-weight:700;font-size:18px;letter-spacing:.01em;text-wrap:balance}
+.week-h small{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow);min-width:0}
+.card.fav{border-color:#f3c98b}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;letter-spacing:.02em;padding:3px 9px;border-radius:999px;color:#fff;background:var(--chip,#777)}
+.badge{display:inline-flex;align-items:center;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.badge.star{background:var(--star-soft);color:var(--star)}
+.badge.free{background:var(--free-soft);color:var(--free)}
+.badge.st{background:#eef2ff;color:#3b3f8a}
+.card h3{margin:2px 0 0;font-family:var(--font-display);font-weight:700;font-size:17px;line-height:1.25;text-wrap:balance;overflow-wrap:anywhere}
+.meta{display:flex;flex-direction:column;gap:2px;font-size:13.5px;color:var(--muted)}
+.meta .when{color:var(--fg);font-weight:600}
+.price{font-weight:700;font-size:14px}
+.price.free{color:var(--free)}
+.why{margin:0;font-size:14px;line-height:1.5;color:#3a384d}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-size:13.5px;font-weight:700;text-decoration:none;border-radius:10px;padding:8px 13px;border:1px solid var(--accent);color:var(--accent);background:transparent;transition:background .15s,color .15s}
+.btn:hover{background:var(--accent-soft)}
+.btn.buy{background:var(--accent);color:#fff}
+.btn.buy:hover{background:#6a3ded}
+.btn:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+.empty{color:var(--muted);text-align:center;padding-block:40px;font-size:15px}
+footer{border-top:1px solid var(--line);background:var(--card)}
+.foot-in{max-width:1080px;margin:0 auto;padding-block:24px 36px;padding-inline:20px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.foot-in p{margin:0 0 8px;max-width:78ch}
+@media (max-width:480px){
+  .hero{padding-block:30px 26px}
+  .hero,.toolbar-in,main,.foot-in{padding-inline:16px}
+  .grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="hero">
+  <div class="hero-in">
+    <h1>LE RADAR — PARIS</h1>
+    <p class="hsub">Chaque semaine, une sélection vérifiée des sorties parisiennes à venir — concerts, soirées musicales, stand-up, expos photo &amp; art, restos branchés, plein air et ateliers — avec liens de réservation directs et de nombreuses options gratuites.</p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="toolbar-in">
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Rechercher un artiste, un lieu, un quartier…" autocomplete="off">
+    </label>
+    <div class="filters" id="filters" role="group" aria-label="Filtres"></div>
+  </div>
+</div>
+
+<main>
+  <section id="agenda" aria-live="polite"></section>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <p><strong>Le Radar — Paris</strong> est une sélection hebdomadaire de sorties à Paris et en proche banlieue : musique (électro, house, disco, funk, world, jazz), stand-up, expositions photo et art, restaurants et bars, glisse urbaine et ateliers créatifs, avec des options gratuites à chaque mise à jour.</p>
+    <p>Les dates, horaires, tarifs et disponibilités sont relevés sur les sites et billetteries officiels au moment de la mise à jour et peuvent évoluer (jauge, report, annulation). Il est conseillé de vérifier la billetterie officielle avant de se déplacer. Les boutons renvoient directement vers les pages officielles des organisateurs et leurs billetteries.</p>
+  </div>
+</footer>
+
+<script>
+const CATS = {
+  electro:{label:"🎧 Électro/Techno",color:"#6d3dff"},
+  disco:{label:"🎶 Disco/House",color:"#e0409a"},
+  funk:{label:"🎷 Funk/Soul",color:"#e8762c"},
+  world:{label:"🌍 World/Latin",color:"#1f9d55"},
+  jazz:{label:"🎺 Jazz",color:"#2f6fdd"},
+  standup:{label:"🎤 Stand-up",color:"#d7263d"},
+  photo:{label:"📷 Photo",color:"#4b5563"},
+  expo:{label:"🖼️ Expo",color:"#0f9b8e"},
+  food:{label:"🍽️ Resto/Food",color:"#c98a06"},
+  branche:{label:"✨ Branché",color:"#b02ac2"},
+  glisse:{label:"🛼 Glisse",color:"#0891b2"},
+  ceram:{label:"🏺 Céramique",color:"#8a5a2b"},
+  aqua:{label:"🎨 Aquarelle",color:"#4f46e5"},
+  couture:{label:"🧵 Couture",color:"#db5a8a"},
+  concert:{label:"🎟️ Concert",color:"#a16207"}
+};
+
+const events = [
+ {
+  "cat": "jazz",
+  "title": "Hommage à Art Blakey avec les Blakettes + jam session",
+  "date": "2026-10-26",
+  "when": "Lun 26 oct · 19h30–21h30",
+  "venue": "Sunside, rue des Lombards",
+  "arr": "1er",
+  "price": "Gratuit (entrée libre)",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Hard bop et répertoire des Jazz Messengers, suivis d'une jam ouverte aux musiciens : le rendez-vous du lundi des clubs des Lombards.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sunset-sunside.com/concert/hommage-a-art-blakey-avec-les-blakettes-jam-sessionhommage-a-freddie-hubbard-avec-fabien-mary-jam-2/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "world",
+  "title": "Halle aux Oliviers : Drissa Dembelé & Losso Keïta (voix, balafon, kora)",
+  "date": "2026-10-29",
+  "when": "Jeu 29 oct · 20h–22h",
+  "venue": "La Bellevilloise, Halle aux Oliviers",
+  "arr": "20e",
+  "price": "Gratuit, réservation conseillée (2 € par couvert pour les artistes)",
+  "fav": true,
+  "free": true,
+  "status": null,
+  "why": "Duo burkinabé issu de la tradition griotte : voix, balafon, kora et djembé, entre musiques d'Afrique de l'Ouest et jazz contemporain.",
+  "links": [
+   {
+    "t": "Réserver une table",
+    "u": "https://bookings.zenchef.com/results?rid=349712&pid=1001",
+    "buy": true
+   },
+   {
+    "t": "Page de la soirée",
+    "u": "https://www.labellevilloise.com/evenement/halle-aux-oliviers-drissa-dembele/",
+    "buy": false
+   }
+  ]
+ },
+ {
+  "cat": "world",
+  "title": "Deep Forest",
+  "date": "2026-10-30",
+  "when": "Ven 30 oct · 20h–22h",
+  "venue": "Sunset, rue des Lombards",
+  "arr": "1er",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Le projet d'electronica ethnique et ambient connu pour ses mélanges de voix du monde et de beats, en concert au club des Lombards.",
+  "links": [
+   {
+    "t": "Infos & réservation",
+    "u": "https://www.sunset-sunside.com/concert/deep-forest/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "electro",
+  "title": "Babylon Halloween : Marten Lou, Nomis, Villanova, Melittah",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · 22h–5h30 (costume obligatoire)",
+  "venue": "Palais Brongniart",
+  "arr": "2e",
+  "price": "dès 31,50 €",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "Nuit house dans l'ancien palais de la Bourse : Marten Lou y joue deep house, melodic house et indie dance, avec scénographie, lumières et son sur mesure.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/fr/events/babylon-halloween-edition-2",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "disco",
+  "title": "House Freaks Halloween : Robert Owens, Sofia, Patrick Vidal, Supplément Groove",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · 22h–5h30",
+  "venue": "Djoon, bd Vincent-Auriol",
+  "arr": "13e",
+  "price": "20 € sur place",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Nuit d'Halloween autour de Robert Owens, voix historique de la house de Chicago, entouré de DJ parisiens entre house, disco, funk et soul.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/en/events/31-octobre-2026",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "world",
+  "title": "Fiesta de los Muertos",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · jusqu'à 6h",
+  "venue": "La Bellevilloise",
+  "arr": "20e",
+  "price": "dès 13 €",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Nuit latine sur quatre espaces : cumbia et salsa en live, zone reggaeton et baile funk, salle salsa-bachata et ring de lucha libre.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://www.labellevilloise.com/evenement/fiesta-de-los-muertos-2/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "electro",
+  "title": "RAW × SETH Halloween : Hadone, Vel, Fenim0re, Exos (live), GABBOR…",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · 22h–8h",
+  "venue": "Paris Dojo, av. de la Porte de Châtillon",
+  "arr": "14e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Dix heures de techno avec sept artistes dont un live d'Exos, pour une nuit d'Halloween sous le signe du son dur.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/fr/events/raw-halloween-2026",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "branche",
+  "title": "Halloween « Freak Show » à Fluctuart",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · jusqu'à 2h",
+  "venue": "Fluctuart, Port du Gros Caillou (péniche)",
+  "arr": "7e",
+  "price": "Gratuit (sur inscription)",
+  "fav": true,
+  "free": true,
+  "status": null,
+  "why": "Soirée costumée sur le centre d'art urbain flottant, avec électro-house et exposition [IN]IMAGINABLE consacrée au lowbrow et au pop surréalisme.",
+  "links": [
+   {
+    "t": "S'inscrire",
+    "u": "https://shotgun.live/fr/events/halloween-party-freak-show",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "branche",
+  "title": "Yōkai Matsuri : festival japonais d'Halloween",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct 11h–20h puis soirée 19h30–2h · dim 1er nov 11h–22h",
+  "venue": "La Petite Halle de La Villette, av. Jean-Jaurès",
+  "arr": "19e",
+  "price": "Gratuit en journée · soirée du 31 : 16 € (18 € sur place)",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Folklore japonais, costumes, performances et musique : accès libre en journée ; défilé et soirée du 31 sur billet.",
+  "links": [
+   {
+    "t": "Billets soirée",
+    "u": "https://shotgun.live/en/events/festival-yokai-matsuri-le-grand-rituel-final",
+    "buy": true
+   },
+   {
+    "t": "Site du lieu",
+    "u": "https://www.lapetitehalle.com/evenement/festival-yokai-matsuri-le-grand-rituel-final-1er-jour/",
+    "buy": false
+   }
+  ]
+ },
+ {
+  "cat": "standup",
+  "title": "La Troupe du Jamel Comedy Club",
+  "date": "2026-11-01",
+  "when": "Dim 1er nov · 18h (séances jeu→dim)",
+  "venue": "Le Comedy Club, bd Bonne-Nouvelle",
+  "arr": "2e/9e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Plateau de stand-up de la troupe du Jamel Comedy Club, programmé en week-end.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://lecomedyclub.com/evenements/la-troupe-du-jamel-comedy-club-2026-weekend/2026-11-01/1/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "electro",
+  "title": "Pitchfork Music Festival Paris 2026",
+  "date": "2026-11-02",
+  "when": "Lun 2 → dim 8 nov · une dizaine de salles",
+  "venue": "Badaboum, Trabendo, Élysée Montmartre, Café de la Danse, Silencio, Supersonic…",
+  "arr": "Multi-lieux",
+  "price": "voir billetterie (DICE)",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Semaine de concerts indie, électroniques et expérimentaux (DIIV, Iceage, Lido Pimienta, Headache…) et soirées club avec Cinthie, George Daniel et Zorza.",
+  "links": [
+   {
+    "t": "Programme & billets",
+    "u": "https://pitchforkmusicfestival.fr/",
+    "buy": true
+   }
+  ],
+  "end": "2026-11-08"
+ },
+ {
+  "cat": "photo",
+  "title": "Paris1 : The Poetics of Photography (Mark Heier)",
+  "date": "2026-11-02",
+  "when": "Du 2 au 14 nov (Semaine de la photo)",
+  "venue": "Studio Harcourt",
+  "arr": "Paris",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Exposition gratuite du photographe Mark Heier au célèbre studio de portrait, pendant la semaine de la photographie.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/351308-exhibition-paris1-the-poetics-of-photography-by-mark-heier-at-studio-harcourt",
+    "buy": true
+   }
+  ],
+  "end": "2026-11-14"
+ },
+ {
+  "cat": "expo",
+  "title": "Mimi Cracra, rétrospective d'Agnès Rosenstiehl",
+  "date": "2026-11-03",
+  "when": "Dès mar 3 nov (jusqu'au 25 janv.)",
+  "venue": "BnF François-Mitterrand",
+  "arr": "13e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Rétrospective consacrée à la créatrice de Mimi Cracra, figure de l'illustration jeunesse.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/354903-the-creator-of-mimi-cracra-is-honored-in-an-exhibition-at-the-bnf-francois-mitterrand",
+    "buy": true
+   }
+  ],
+  "end": "2027-01-25"
+ },
+ {
+  "cat": "photo",
+  "title": "Louvre Photo",
+  "date": "2026-11-04",
+  "when": "Dès mer 4 nov (jusqu'au 3 mai)",
+  "venue": "Musée du Louvre",
+  "arr": "1er",
+  "price": "inclus dans le billet du musée",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Exposition consacrée à la façon dont le musée inspire les photographes.",
+  "links": [
+   {
+    "t": "Page officielle",
+    "u": "https://www.louvre.fr/expositions-et-evenements/expositions/louvre-photo",
+    "buy": true
+   }
+  ],
+  "end": "2027-05-03"
+ },
+ {
+  "cat": "photo",
+  "title": "PhotoSaintGermain 2026 : parcours photo dans le quartier",
+  "date": "2026-11-05",
+  "when": "Du 5 au 28 nov",
+  "venue": "Saint-Germain-des-Prés (plus de 30 lieux)",
+  "arr": "6e",
+  "price": "Gratuit",
+  "fav": true,
+  "free": true,
+  "status": null,
+  "why": "15e édition du festival : galeries, librairies, musées et hôtels accueillent expositions, rencontres et signatures autour de la photographie.",
+  "links": [
+   {
+    "t": "Site officiel",
+    "u": "https://www.photosaintgermain.com/",
+    "buy": true
+   }
+  ],
+  "end": "2026-11-28"
+ },
+ {
+  "cat": "disco",
+  "title": "La Mona – Disco to Techno : Maurice Fulton, Céline B, Nick V",
+  "date": "2026-11-06",
+  "when": "Ven 6 nov · 22h–5h30",
+  "venue": "La Bellevilloise, Le Club",
+  "arr": "20e",
+  "price": "19 € sur place (voir billetterie en ligne)",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "Maurice Fulton (house expérimentale, disco déviante) en salle principale, Céline B en renfort, plus cours de whacking à l'ouverture.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/fr/events/la-mona-06-11-26",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "disco",
+  "title": "Musicology : Will & Paco / Paris a le Groove",
+  "date": "2026-11-07",
+  "when": "Sam 7 nov · 23h–5h30",
+  "venue": "La Bellevilloise, Le Club",
+  "arr": "20e",
+  "price": "dès 11 €",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Soirée mensuelle : disco, soul, house, rap et R&B dans une salle, funk, soul old school, hip-hop, latin et afro dans l'autre.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/events/musicology-07-11-26",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "expo",
+  "title": "Nocturne gratuite à la Bourse de Commerce",
+  "date": "2026-11-07",
+  "when": "Sam 7 nov · environ 17h–21h",
+  "venue": "Bourse de Commerce – Pinault Collection, 2 rue de Viarmes",
+  "arr": "1er",
+  "price": "Gratuit (réservation, places vite épuisées)",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Nocturne gratuite programmée le premier samedi de chaque mois dans le musée installé dans l'ancienne Bourse de commerce ; horaires à confirmer auprès du lieu.",
+  "links": [
+   {
+    "t": "Site officiel",
+    "u": "https://www.pinaultcollection.com/fr/boursedecommerce",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "branche",
+  "title": "Zombie Walk Paris 2026",
+  "date": "2026-11-07",
+  "when": "Sam 7 nov",
+  "venue": "Rues de Paris",
+  "arr": "Paris",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Déambulation costumée gratuite dans les rues de Paris, ouverte à toutes et à tous.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/walks/articles/56274-zombie-walk-2026-the-living-dead-invade-paris-on-november-7",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "photo",
+  "title": "Paris Photo 2026",
+  "date": "2026-11-12",
+  "when": "Jeu 12 → dim 15 nov · 13h–20h (dim 19h)",
+  "venue": "Grand Palais",
+  "arr": "8e",
+  "price": "voir billetterie",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "La grande foire internationale de la photographie, avec galeries, éditeurs et rencontres.",
+  "links": [
+   {
+    "t": "Billetterie",
+    "u": "https://www.parisphoto.com/fr-fr/info/billetterie.html",
+    "buy": true
+   },
+   {
+    "t": "Site officiel",
+    "u": "https://www.parisphoto.com/fr-fr.html",
+    "buy": false
+   }
+  ],
+  "end": "2026-11-15"
+ },
+ {
+  "cat": "funk",
+  "title": "Free Your Funk × Club Coco : Another Taste (live), DJ Spinna, Coco María",
+  "date": "2026-11-14",
+  "when": "Sam 14 nov · 22h–5h30",
+  "venue": "La Bellevilloise, Le Club & Le Forum",
+  "arr": "20e",
+  "price": "25 € avant 0h30, 20 € après (sur place)",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "Le groupe néerlandais Another Taste en live, la sélectrice Coco María entre salsa et MPB, puis DJ Spinna de 2h à la fermeture.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/events/fyf-club-coco-14-11-26",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "expo",
+  "title": "Festival de street art de La Poste du Louvre",
+  "date": "2026-11-14",
+  "when": "Du 14 au 22 nov",
+  "venue": "La Poste du Louvre",
+  "arr": "1er",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "4e édition d'un festival gratuit d'art urbain dans l'ancien hôtel des postes.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/303019-free-street-art-festival-at-la-poste-du-louvre-in-2026-the-programme",
+    "buy": true
+   }
+  ],
+  "end": "2026-11-22"
+ },
+ {
+  "cat": "glisse",
+  "title": "ElectroRoller « Roller Party »",
+  "date": "2026-11-20",
+  "when": "Ven 20 nov",
+  "venue": "La Bellevilloise",
+  "arr": "20e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Soirée roller et musique électronique dans la grande salle de Ménilmontant.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.labellevilloise.com/evenement/electroroller-roller-party/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "expo",
+  "title": "1867, l'Exposition universelle et l'avènement de la photographie",
+  "date": "2026-11-25",
+  "when": "Dès mer 25 nov (jusqu'au 22 févr.)",
+  "venue": "Archives nationales",
+  "arr": "Paris",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Exposition immersive gratuite sur l'Exposition universelle de 1867 et les débuts de la photographie.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/342153-a-free-immersive-exhibition-in-paris-explores-the-1867-universal-exposition-and-the-advent-of-photography",
+    "buy": true
+   }
+  ],
+  "end": "2027-02-22"
+ },
+ {
+  "cat": "disco",
+  "title": "Miss Monique presents Biorhythm",
+  "date": "2026-11-27",
+  "when": "Ven 27 nov · 23h–6h",
+  "venue": "Phantom, bd de Bercy",
+  "arr": "12e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "La DJ ukrainienne Miss Monique présente son concept entre melodic house et techno, dans le club de Bercy.",
+  "links": [
+   {
+    "t": "Billets",
+    "u": "https://shotgun.live/fr/events/miss-monique-presents-biorhythm",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "branche",
+  "title": "PAGE(S) 2026 – salon du livre d'artiste",
+  "date": "2026-11-27",
+  "when": "Ven 27 nov 14h–20h · sam 28 11h–20h · dim 29 11h–19h",
+  "venue": "Palais de la Femme, rue de Charonne",
+  "arr": "11e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Salon gratuit consacré aux livres d'artistes et à l'édition indépendante, avec annonce du prix PAGE(S) le samedi à 18h.",
+  "links": [
+   {
+    "t": "Site officiel",
+    "u": "https://salon-pages.com/",
+    "buy": true
+   }
+  ],
+  "end": "2026-11-29"
+ },
+ {
+  "cat": "disco",
+  "title": "Marco Castello (live avec son groupe)",
+  "date": "2026-12-07",
+  "when": "Lun 7 déc · portes 19h30",
+  "venue": "La Bellevilloise, Le Club",
+  "arr": "20e",
+  "price": "dès 28 € en ligne (30 € sur place)",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Le chanteur et multi-instrumentiste sicilien revient avec son groupe, entre soul, jazz et pop solaire.",
+  "links": [
+   {
+    "t": "Billets (DICE)",
+    "u": "https://dice.fm/partner/tickets/event/dkp8ee-marco-castello-eu-tour-7th-dec-la-bellevilloise-paris-tickets",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "food",
+  "title": "Mi-Livre Mi-Raisin – salon du livre et du vin",
+  "date": "2026-12-05",
+  "when": "Sam 5 & dim 6 déc",
+  "venue": "La Bellevilloise",
+  "arr": "20e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Rendez-vous de vignerons, de maisons d'édition et d'auteurs dans le grand espace de La Bellevilloise.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://www.labellevilloise.com/evenement/mi-livre-mi-raisin-2/",
+    "buy": true
+   }
+  ],
+  "end": "2026-12-06"
+ },
+ {
+  "cat": "jazz",
+  "title": "Jim Snidero Quartet",
+  "date": "2026-10-31",
+  "when": "Sam 31 oct · 21h30",
+  "venue": "Sunside, rue des Lombards",
+  "arr": "1er",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Le saxophoniste new-yorkais en quartet au club des Lombards, dans la tradition du hard bop.",
+  "links": [
+   {
+    "t": "Infos & réservation",
+    "u": "https://www.sunset-sunside.com/concert/jim-snidero-quartet/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "glisse",
+  "title": "Pari Roller – randonnée du vendredi soir",
+  "date": null,
+  "when": "Chaque vendredi · départ 21h30",
+  "venue": "Devant la gare Montparnasse (parcours différent chaque semaine)",
+  "arr": "14e/15e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Randonnée roller encadrée dans les rues de Paris, sans inscription ; annulée en cas de pluie ou de chaussée mouillée.",
+  "links": [
+   {
+    "t": "Site officiel",
+    "u": "https://pari-roller.com",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "standup",
+  "title": "Madame Sarfati Comedy Club",
+  "date": null,
+  "when": "Tous les jours · plusieurs séances par soir",
+  "venue": "Madame Sarfati",
+  "arr": "1er",
+  "price": "dès 27 €",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Comedy club de stand-up en plein centre de Paris, avec plusieurs plateaux chaque soir.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://madamesarfati.com",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "standup",
+  "title": "Jamel Comedy Club – La Troupe (jeu → dim)",
+  "date": null,
+  "when": "Du jeudi au dimanche, plusieurs séances",
+  "venue": "Le Comedy Club, bd Bonne-Nouvelle",
+  "arr": "2e/9e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Plateaux de stand-up de la troupe du Jamel Comedy Club, programmés en fin de semaine.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://www.lecomedyclub.com/evenements",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Martin Parr : Autoportrait",
+  "date": null,
+  "when": "Jusqu'au 13 janvier 2027",
+  "venue": "Saint Laurent Montaigne, 37 av. Montaigne",
+  "arr": "8e",
+  "price": "Gratuit",
+  "fav": true,
+  "free": true,
+  "status": null,
+  "why": "Exposition photo gratuite du Britannique Martin Parr, où l'autodérision prend la pose.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/340942-martin-parr-at-saint-laurent-the-free-photo-exhibition-where-self-mockery-takes-a-pose",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Teenage Dream : l'adolescence en photo",
+  "date": null,
+  "when": "Jusqu'au 20 décembre",
+  "venue": "Le Quai de la Photo, 22 port de la Gare",
+  "arr": "13e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Exposition photo gratuite sur l'adolescence, au bord de la Seine.",
+  "links": [
+   {
+    "t": "Page officielle",
+    "u": "https://quaidelaphoto.fr/evenement/exposition-teenage-dream/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Cabaret(s)",
+  "date": null,
+  "when": "Jusqu'au 18 décembre",
+  "venue": "Square du Temple",
+  "arr": "3e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Exposition photo gratuite en plein air autour du cabaret.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/en/what-to-visit-in-paris/exhibit-museum/articles/353699-cabaret-a-free-photo-exhibition-at-square-du-temple",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Photo Days – parcours de galeries",
+  "date": null,
+  "when": "Du 2 au 30 novembre",
+  "venue": "Galeries de Paris et de la région",
+  "arr": "Multi-lieux",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Parcours gratuit d'expositions photo dans les galeries, en marge de la semaine de Paris Photo.",
+  "links": [
+   {
+    "t": "Site officiel",
+    "u": "https://photodays.paris/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Stan Douglas – Parallax",
+  "date": null,
+  "when": "Jusqu'au 10 janvier 2027",
+  "venue": "Jeu de Paume",
+  "arr": "1er",
+  "price": "14 €",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Grande exposition consacrée à l'artiste canadien, entre photographie mise en scène et installations vidéo.",
+  "links": [
+   {
+    "t": "Page de l'expo & billets",
+    "u": "https://jeudepaume.org/evenement/stan-douglas/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Susan Meiselas, Nicaragua · Martine Franck, images, presse et luttes féministes",
+  "date": null,
+  "when": "Jusqu'au 7 mars 2027",
+  "venue": "Fondation Henri Cartier-Bresson",
+  "arr": "3e",
+  "price": "10 € (réduit 6 €)",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "Double exposition à la fondation du Marais : le travail documentaire de Susan Meiselas au Nicaragua et les images de presse et de luttes féministes de Martine Franck.",
+  "links": [
+   {
+    "t": "Expo Meiselas",
+    "u": "https://www.henricartierbresson.org/expositions/susan-meiselas/",
+    "buy": true
+   },
+   {
+    "t": "Expo Martine Franck",
+    "u": "https://www.henricartierbresson.org/expositions/martine-franck-2/",
+    "buy": false
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "Penn & Fashion – Irving Penn",
+  "date": null,
+  "when": "Jusqu'au 17 janvier 2027",
+  "venue": "Maison Européenne de la Photographie",
+  "arr": "4e",
+  "price": "14 € en ligne (13 € sur place)",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Rétrospective consacrée à la photographie de mode d'Irving Penn.",
+  "links": [
+   {
+    "t": "Page de l'expo",
+    "u": "https://www.mep-fr.org/event/penn-fashion/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "photo",
+  "title": "100 ans d'histoire de la photographie – collections de la BnF (1839-1939)",
+  "date": null,
+  "when": "Jusqu'au 19 novembre",
+  "venue": "Gare de Lyon",
+  "arr": "12e",
+  "price": "Gratuit",
+  "fav": false,
+  "free": true,
+  "status": null,
+  "why": "Exposition en accès libre dans la gare, issue des collections de la BnF, pour le bicentenaire de la photographie.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.bnf.fr/fr/agenda/100-ans-dhistoire-de-la-photographie-dans-les-collections-de-la-bnf-1839-1939",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "expo",
+  "title": "Planète Océan, immersion vers les profondeurs",
+  "date": null,
+  "when": "Tous les jours, jusqu'en janvier 2027",
+  "venue": "Atelier des Lumières, rue Saint-Maur",
+  "arr": "11e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Création immersive à 360° consacrée aux récifs et aux abysses, dans l'ancienne fonderie reconvertie en centre d'art numérique.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://planeteocean.atelier-lumieres.com/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "expo",
+  "title": "Renaissance : De Vinci, Raphaël, Michel-Ange",
+  "date": null,
+  "when": "Jusqu'au 17 décembre",
+  "venue": "Atelier des Lumières, rue Saint-Maur",
+  "arr": "11e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Création immersive consacrée aux maîtres de la Renaissance italienne, projetée à grande échelle.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://renaissance.atelier-lumieres.com/",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "Selma – bistrot aux influences turques (Sahin Erdal)",
+  "date": null,
+  "when": "Nouvelle ouverture",
+  "venue": "128 rue du Chemin Vert",
+  "arr": "11e",
+  "price": "à la carte",
+  "fav": true,
+  "free": false,
+  "status": null,
+  "why": "Nouveau bistrot du chef Sahin Erdal : cuisine française nourrie d'influences turques, vins et cocktails.",
+  "links": [
+   {
+    "t": "Présentation",
+    "u": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/353423-selma-le-nouveau-bistrot-de-sahin-erdal-aux-influences-turques",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "Eupatoria 5 – bistrot grec",
+  "date": null,
+  "when": "Récemment ouvert",
+  "venue": "Ménilmontant",
+  "arr": "20e",
+  "price": "à la carte",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Ancienne adresse reconvertie en bistrot grec par Basile Eidel, produits français et cuisine grecque revisitée.",
+  "links": [
+   {
+    "t": "Présentation",
+    "u": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/349954-eupatoria-5-l-ancien-eva-pritsky-renait-en-bistrot-grec-dans-le-20e-arrondissement",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "La Mijoterie – plats mijotés servis en cocotte",
+  "date": null,
+  "when": "Nouvelle ouverture",
+  "venue": "Paris 12e",
+  "arr": "12e",
+  "price": "à la carte",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Le chef Augustin Garnier sert des plats longuement mijotés directement dans leur cocotte.",
+  "links": [
+   {
+    "t": "Présentation",
+    "u": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/349972-la-mijoterie-des-plats-mijotes-servis-directement-en-cocotte-dans-le-12e-arrondissement",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "Fat Belly – rôtisserie asiatique",
+  "date": null,
+  "when": "Nouvelle ouverture",
+  "venue": "Le Marais",
+  "arr": "3e/4e",
+  "price": "à la carte",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Rôtisserie asiatique : viandes rôties, nouilles maison et desserts.",
+  "links": [
+   {
+    "t": "Présentation",
+    "u": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/352849-fat-belly-la-croustillante-rotisserie-asiatique-qui-fait-saliver-le-marais",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "Kintsugi Beer – brewpub japonais au bord du canal",
+  "date": null,
+  "when": "Ouvert depuis septembre 2026",
+  "venue": "Canal Saint-Martin",
+  "arr": "10e",
+  "price": "à la carte",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Brasserie japonaise avec bières brassées sur place et gyozas, installée au bord du canal.",
+  "links": [
+   {
+    "t": "Présentation",
+    "u": "https://www.sortiraparis.com/hotel-restaurant/restaurant/articles/349966-kintsugi-beer-un-brewpub-japonais-avec-bieres-brassees-sur-place-et-gyozas-au-bord-du-canal",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "food",
+  "title": "Halle aux Oliviers – bar-restaurant et concerts acoustiques",
+  "date": null,
+  "when": "Concerts du mercredi au samedi, jazz-brunch le dimanche",
+  "venue": "La Bellevilloise",
+  "arr": "20e",
+  "price": "à la carte",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Bar-restaurant de La Bellevilloise avec programmation d'artistes en acoustique presque tous les soirs et jazz-brunch dominical.",
+  "links": [
+   {
+    "t": "Réserver une table",
+    "u": "https://bookings.zenchef.com/results?rid=349712&pid=1001",
+    "buy": true
+   },
+   {
+    "t": "Agenda",
+    "u": "https://www.labellevilloise.com/agenda",
+    "buy": false
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "ceram",
+  "title": "Initiation au tournage et décor en duo",
+  "date": null,
+  "when": "Sur réservation · 2 séances de 2 h · jusqu'à 2 personnes",
+  "venue": "7 rue du Capitaine Ferber",
+  "arr": "20e",
+  "price": "160 € par personne",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Atelier de céramique pour deux : tournage puis décor des pièces, à partir de 15 ans ; annulation gratuite jusqu'à 48 h avant.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://www.funbooker.com/fr/annonce/initiation-au-tournage-en-ceramique-et-decor-en-duo-a-paris-20eme/voir",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "couture",
+  "title": "Atelier upcycling – customiser un vêtement",
+  "date": null,
+  "when": "Vendredi 18h–20h · 2 h · jusqu'à 2 personnes",
+  "venue": "Boutique Flanelle, 24 rue de Montreuil",
+  "arr": "11e",
+  "price": "55 € par personne",
+  "fav": false,
+  "free": false,
+  "status": null,
+  "why": "Deux heures pour transformer un vêtement de sa garde-robe (rubans, boutons, patchs) ; dès 13 ans, annulation gratuite jusqu'à 10 jours avant.",
+  "links": [
+   {
+    "t": "Réserver",
+    "u": "https://www.funbooker.com/fr/annonce/atelier-upcycling-a-paris-11eme/voir",
+    "buy": true
+   }
+  ],
+  "flex": true
+ },
+ {
+  "cat": "concert",
+  "title": "Jungle",
+  "date": "2026-10-30",
+  "when": "Ven 30 oct 2026",
+  "venue": "Accor Arena",
+  "arr": "12e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le groupe britannique de soul et disco-funk en concert à Bercy.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://75.agendaculturel.fr/concert/jungle.html",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Fontaines D.C.",
+  "date": "2026-11-13",
+  "when": "Ven 13 nov 2026",
+  "venue": "Accor Arena (Bercy)",
+  "arr": "12e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le groupe de rock irlandais en concert à Bercy.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://75.agendaculturel.fr/concert/fontaines-d-c.html",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Interpol & Bloc Party",
+  "date": "2026-11-16",
+  "when": "Lun 16 nov 2026",
+  "venue": "Zénith de Paris – La Villette",
+  "arr": "19e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Double plateau de deux figures du rock indie des années 2000.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/scenes/concert-musique/articles/336077-interpol-bloc-party-concert-paris-zenith",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Kneecap (FENIAN Tour)",
+  "date": "2026-11-20",
+  "when": "Ven 20 nov 2026",
+  "venue": "Zénith de Paris – La Villette",
+  "arr": "19e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le trio irlandais de hip-hop en langue irlandaise en tournée.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://75.agendaculturel.fr/concert/kneecap-fenian-tour.html",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Placebo – tournée des 30 ans",
+  "date": "2026-11-25",
+  "when": "Mer 25 nov 2026",
+  "venue": "Accor Arena (Bercy)",
+  "arr": "12e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le groupe de rock alternatif fête trente ans de carrière.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/scenes/concert-musique/articles/342714-placebo-en-concert-a-paris-bercy-en-novembre-2026-pour-feter-ses-30-ans-de-carriere",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Fatoumata Diawara",
+  "date": "2026-11-25",
+  "when": "Mer 25 nov 2026",
+  "venue": "L'Olympia",
+  "arr": "9e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "La chanteuse et guitariste malienne, entre tradition wassoulou, funk et pop.",
+  "links": [
+   {
+    "t": "Infos",
+    "u": "https://www.sortiraparis.com/scenes/concert-musique/articles/337233-fatoumata-diawara-concert-olympia-paris",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Gang of Youths",
+  "date": "2026-11-28",
+  "when": "Sam 28 nov 2026",
+  "venue": "La Bellevilloise",
+  "arr": "20e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le groupe australien de rock indie en concert à La Bellevilloise.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://www.labellevilloise.com/evenement/gang-of-youths/",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Horace Andy & The Dub Asante Band",
+  "date": "2026-12-03",
+  "when": "Jeu 3 déc 2026 · 19h30",
+  "venue": "Cabaret Sauvage",
+  "arr": "19e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "La voix falsetto du reggae jamaïcain, connue pour ses collaborations avec Massive Attack, accompagnée d'un groupe de dub.",
+  "links": [
+   {
+    "t": "Infos & billets",
+    "u": "https://75.agendaculturel.fr/concert/horace-andy-and-the-dub-asante-band-ft-matic-horns.html",
+    "buy": true
+   }
+  ]
+ },
+ {
+  "cat": "concert",
+  "title": "Bonobo – Distance In Static (live)",
+  "date": "2027-03-26",
+  "when": "Ven 26 mars 2027",
+  "venue": "Salle Pleyel",
+  "arr": "8e",
+  "price": "voir billetterie",
+  "fav": false,
+  "free": false,
+  "status": "🔵 Annoncé",
+  "why": "Le producteur britannique de downtempo et d'electronica présente son live autour de l'album Distance In Static.",
+  "links": [
+   {
+    "t": "Billets (Fnac)",
+    "u": "https://www.fnacspectacles.com/event/bonobo-distance-in-static-live-salle-pleyel-paris-08-22135417/",
+    "buy": true
+   },
+   {
+    "t": "Infos",
+    "u": "https://75.agendaculturel.fr/concert/bonobo-distance-in-static-live.html",
+    "buy": false
+   }
+  ]
+ }
+];
+
+const FILTERS = [
+  ["all","Tout"],["fav","★ Coups de cœur"],["free","🆓 Gratuit"],["concert","🎟️ Concerts"],
+  ["electro","🎧 Électro/Techno"],["disco","🎶 Disco/House"],["funk","🎷 Funk/Soul"],["world","🌍 World/Latin"],["jazz","🎺 Jazz"],
+  ["standup","🎤 Stand-up"],["photo","📷 Photo"],["expo","🖼️ Expo"],["food","🍽️ Resto/Food"],["branche","✨ Branché"],["glisse","🛼 Glisse"],
+  ["ceram","🏺 Céramique"],["aqua","🎨 Aquarelle"],["couture","🧵 Couture"]
+];
+const MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+let activeFilter = "all";
+let query = "";
+
+function parseISO(s){ const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); }
+function startOfToday(){ const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); }
+function mondayOf(d){ const x = new Date(d); const day = (x.getDay()+6)%7; x.setDate(x.getDate()-day); return x; }
+function addDays(d,n){ const x = new Date(d); x.setDate(x.getDate()+n); return x; }
+function isoKey(d){ return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; }
+function weekLabel(mon){
+  const sun = addDays(mon,6);
+  if (mon.getMonth() === sun.getMonth()) return `Semaine du ${mon.getDate()} au ${sun.getDate()} ${MONTHS[sun.getMonth()]}`;
+  return `Semaine du ${mon.getDate()} ${MONTHS[mon.getMonth()]} au ${sun.getDate()} ${MONTHS[sun.getMonth()]}`;
+}
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function matches(e){
+  if (activeFilter === "fav" && !e.fav) return false;
+  if (activeFilter === "free" && !e.free) return false;
+  if (activeFilter !== "all" && activeFilter !== "fav" && activeFilter !== "free" && e.cat !== activeFilter) return false;
+  if (query){
+    const hay = [e.title,e.venue,e.arr,e.why,e.price,e.when].join(" ").toLowerCase();
+    if (!hay.includes(query)) return false;
+  }
+  return true;
+}
+
+function card(e){
+  const c = CATS[e.cat] || {label:"",color:"#777"};
+  const badges = [];
+  if (e.fav) badges.push('<span class="badge star">★ Coup de cœur</span>');
+  if (e.free) badges.push('<span class="badge free">🆓 Gratuit</span>');
+  if (e.status) badges.push(`<span class="badge st">${esc(e.status)}</span>`);
+  const links = (e.links||[]).map(l => `<a class="btn${l.buy?" buy":""}" href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.t)}</a>`).join("");
+  return `<article class="card${e.fav?" fav":""}">
+    <div class="badges"><span class="chip" style="--chip:${c.color}">${esc(c.label)}</span>${badges.join("")}</div>
+    <h3>${esc(e.title)}</h3>
+    <div class="meta"><span class="when">${esc(e.when)}</span><span>${esc(e.venue)} · ${esc(e.arr)}</span></div>
+    <div class="price${e.free?" free":""}">${esc(e.price)}</div>
+    <p class="why">${esc(e.why)}</p>
+    <div class="links">${links}</div>
+  </article>`;
+}
+
+function render(){
+  const today = startOfToday();
+  const thisMonday = mondayOf(today);
+  const dated = [], flex = [], concerts = [];
+  for (const e of events){
+    if (!matches(e)) continue;
+    if (e.cat === "concert"){
+      if (e.date && parseISO(e.end || e.date) < today) continue;
+      concerts.push(e); continue;
+    }
+    if (e.flex || !e.date){ flex.push(e); continue; }
+    if (parseISO(e.end || e.date) < today) continue;
+    dated.push(e);
+  }
+  dated.sort((a,b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : (b.fav?1:0)-(a.fav?1:0)));
+  concerts.sort((a,b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+
+  const weeks = new Map();
+  for (const e of dated){
+    let mon = mondayOf(parseISO(e.date));
+    if (mon < thisMonday) mon = thisMonday;
+    const key = isoKey(mon);
+    if (!weeks.has(key)) weeks.set(key, {mon, items:[]});
+    weeks.get(key).items.push(e);
+  }
+
+  let html = "";
+  for (const [,w] of [...weeks.entries()].sort((a,b) => a[0] < b[0] ? -1 : 1)){
+    html += `<section class="week"><h2 class="week-h">📅 ${esc(weekLabel(w.mon))}</h2><div class="grid">${w.items.map(card).join("")}</div></section>`;
+  }
+  if (flex.length){
+    html += `<section class="week"><h2 class="week-h">🔁 En continu &amp; sur réservation <small>récurrent ou à la carte</small></h2><div class="grid">${flex.map(card).join("")}</div></section>`;
+  }
+  if (concerts.length){
+    html += `<section class="week"><h2 class="week-h">🎟️ Concerts à venir <small>horizon 12 mois</small></h2><div class="grid">${concerts.map(card).join("")}</div></section>`;
+  }
+  if (!html) html = `<p class="empty">Aucune sortie ne correspond à cette recherche.</p>`;
+  document.getElementById("agenda").innerHTML = html;
+}
+
+function buildFilters(){
+  const box = document.getElementById("filters");
+  const present = new Set(events.map(e => e.cat));
+  const list = FILTERS.filter(([k]) => ["all","fav","free"].includes(k) || present.has(k));
+  box.innerHTML = list.map(([k,l]) => `<button type="button" class="fbtn" data-k="${k}" aria-pressed="${k===activeFilter}">${esc(l)}</button>`).join("");
+  box.querySelectorAll(".fbtn").forEach(b => b.addEventListener("click", () => {
+    activeFilter = b.dataset.k;
+    box.querySelectorAll(".fbtn").forEach(x => x.setAttribute("aria-pressed", String(x.dataset.k === activeFilter)));
+    render();
+  }));
+}
+
+document.getElementById("q").addEventListener("input", ev => { query = ev.target.value.trim().toLowerCase(); render(); });
+buildFilters();
+render();
+</script>
+
+</body></html>
